@@ -34,12 +34,12 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 
     if( percent < 0 )
         return `Параметр percent содержит неправильное значение ${percent}.`
-    if(contribution <0)
+    if(contribution < 0)
          return `Параметр contribution содержит неправильное значение ${contribution}.`
-    if( amount<0)
-          return `Параметр amount содержит неправильное значение ${amount}.`
-    if( date<new Date())
-          return `Параметр date содержит неправильное значение ${date}.`
+    if(amount < 0)
+         return `Параметр amount содержит неправильное значение ${amount}.`
+    if(date < new Date())
+         return `Параметр date содержит неправильное значение ${date}.`
 
     let S = amount - contribution;
     let today = new Date();
