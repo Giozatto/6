@@ -15,7 +15,7 @@ function getArrayParams(arr) {
   }
   avg = sum / arr.length;
 
-  return { min:min, max:max, avg:avg.toFixed(2) };
+  return { min:min, max:max, avg:Number(avg.toFixed(2)) };
 }
 
 getArrayParams([-99, 99, 10]);
@@ -29,6 +29,8 @@ function worker(arr) {
   }
   return sum;
 }
+const total = sum;
+
 worker([1, 2, 3, 4]);
 
 function makeWork(arrOfArr, func) {
