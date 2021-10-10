@@ -1,4 +1,5 @@
 
+
 class PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
         this.name = name;
@@ -8,14 +9,14 @@ class PrintEditionItem {
         this.type = null;
     }
     fix() {
-        this.state = this.state * 1.5;
+        this.state *= 1.5;
     }
     set state(state) {
         if (state < 0) {
             this._state = 0
         }
-        else if (state > 100) {
-            this._state = 100
+        if (state > 100) {
+            this.state = 100;
         } else {
             this._state = state;
         }
@@ -24,7 +25,6 @@ class PrintEditionItem {
         return this._state;
     }
 }
-
 const sherlock = new PrintEditionItem(
     "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
     2019,
@@ -42,7 +42,6 @@ class Magazine extends PrintEditionItem {
         this.type = 'magazine';
     }
 }
-
 class Book extends PrintEditionItem {
     constructor(author, name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount);
@@ -50,28 +49,24 @@ class Book extends PrintEditionItem {
         this.type = 'book';
     }
 }
-
 class NovelBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = 'novel';
     }
 }
-
 class FantasticBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = 'fantastic';
     }
 }
-
 class DetectiveBook extends Book {
     constructor(author, name, releaseDate, pagesCount) {
         super(author, name, releaseDate, pagesCount);
         this.type = 'detective';
     }
 }
-
 const picknick = new FantasticBook(
     "Аркадий и Борис Стругацкие",
     "Пикник на обочине",
@@ -84,7 +79,6 @@ picknick.state = 10;
 console.log(picknick.state); //10
 picknick.fix();
 console.log(picknick.state); //15
-
 
 class Library {
     constructor(name) {
@@ -107,14 +101,14 @@ class Library {
     giveBookByName(bookName) {
         for (let i = 0; i < this.books.length; i++) {
             if (this.books[i].name == bookName) {
+                let myBook = this.books[i];
                 this.books.splice([i], 1);
-            } else {
-                return null;
+                return myBook;
             }
         }
+        return null;
     }
 }
-
 const library = new Library("Библиотека имени Ленина");
 
 library.addBook(

@@ -4,18 +4,18 @@ function getArrayParams(arr) {
   let min = arr[0];
   let sum = 0;
   let avg = 0;
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] > max){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
       max = arr[i];
     }
-    if(arr[i] < min){
+    if (arr[i] < min) {
       min = arr[i];
     }
     sum += arr[i];
   }
   avg = sum / arr.length;
 
-  return { min:min, max:max, avg:Number(avg.toFixed(2)) };
+  return { min: min, max: max, avg: Number(avg.toFixed(2)) };
 }
 
 getArrayParams([-99, 99, 10]);
@@ -29,7 +29,6 @@ function worker(arr) {
   }
   return sum;
 }
-const total = sum;
 
 worker([1, 2, 3, 4]);
 
@@ -51,16 +50,15 @@ makeWork([[1, 2, 3], [4, 5, 6]], worker);
 function worker2(arr) {
   let max = arr[0];
   let min = arr[0];
-  let diff = 0;
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] > max){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
       max = arr[i];
     }
-    if(arr[i] < min){
+    if (arr[i] < min) {
       min = arr[i];
     }
   }
-  diff = max - min;
+  let diff = max - min;
   return diff;
 }
 
