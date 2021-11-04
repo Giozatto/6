@@ -52,4 +52,5 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   console.log(totalAmount.toFixed(2));
 
   return Number(totalAmount.toFixed(2));
+  jhzbnxm,
 }
