@@ -50,4 +50,3 @@ function getTriangle(a, b, c) {
         return obj;
     }
 }
-
