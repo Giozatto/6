@@ -102,13 +102,14 @@ class Library {
         for (let i = 0; i < this.books.length; i++) {
             if (this.books[i].name == bookName) {
                 let myBook = this.books[i];
-                this.books.splice([i], 1);
+                this.books.splice(i, 1);
                 return myBook;
             }
         }
         return null;
     }
 }
+findBookBy("author", "Tolstoi")
 const library = new Library("Библиотека имени Ленина");
 
 library.addBook(
@@ -136,3 +137,35 @@ console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
 library.giveBookByName("Машина времени");
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+
+
+
+
+class Student {
+    constructor(name) {
+        this.name = name;
+    }
+    addMark(mark, subjectName) {
+        this.mark = mark;
+        this.subject = subjectName;
+        if (this.marks === undefined) {
+            this.marks = [];
+        }
+        if (this.mark > 0 && this.mark < 6) {
+            this.marks.push(Number.mark);
+        } else {
+            alert(`Ошибка, оценка должна быть числом от 1 до 5`);
+        }
+    }
+}
+
+const student = new Student("Олег Никифоров");
+student.addMark(5, "algebra");
+student.addMark(5, "algebra");
+student.addMark(5, "geometry");
+student.addMark(4, "geometry");
+student.addMark(6, "geometry"); // "Ошибка, оценка должна быть числом от 1 до 5"
+student.getAverageBySubject("geometry"); // Средний балл по предмету geometry 4.5
+student.getAverageBySubject("biology"); // Несуществующий предмет
+student.getAverage(); // Средний балл по всем предметам 4.75
+student.exclude("Исключен за попытку подделать оценки");
