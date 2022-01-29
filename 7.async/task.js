@@ -51,9 +51,9 @@ class AlarmClock {
         }
     }
     stop() {
-        if (timerId !== null) {
+        if (this.timerId !== null) {
             clearInterval(timerId);
-            timerId = null;
+            this.timerId = null;
         }
     }
     printAlarms() {
